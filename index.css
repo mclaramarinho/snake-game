@@ -1,0 +1,94 @@
+
+html{
+    display: inline-block;
+}
+body{
+    background-color: rgb(12, 4, 4);
+}
+#container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 600px;
+    margin-top: -300px;
+    width: 400px;
+    margin-left: -200px;
+    text-align: center;
+}
+#level-container{
+    margin-bottom: 10%;
+    font-family: 'Montserrat';
+    font-size: 1.5em;
+    font-weight: 500;
+    color: white;
+}
+#level{
+    font-weight: 400;
+}
+
+#btn-container{
+    margin-top: 10%;
+}
+
+#title{
+    font-family: 'Irish Grover';
+    font-size: 3em;
+}
+#grid{
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+    border: 1px solid rgb(255, 255, 255);
+    margin: 0 auto;
+}
+
+.grid-block{
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.082);
+    box-sizing: border-box;
+}
+
+.snake{
+    background-color: green;
+}
+
+.apple{
+    background-color:crimson;
+}
+
+.game-over{
+    background-color: red;
+}
+
+button{
+    border: transparent;
+    padding:2% 3%;
+    border-radius: 20px;
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.671);
+    font-weight: 500;
+}
+button:hover{
+    cursor: pointer;
+    font-weight: 1000;
+    color: white;
+}
+#reset-btn{
+    background-color: rgba(220, 20, 60, 0.562);
+}
+#start-btn{
+    background-color: green;
+}
+#btn-container{
+    display: flex;
+    column-gap: 50%;
+    justify-content: center;
+}
+#s, #a, #e{
+    color: green;
+}
+#n, #k{
+    color: crimson;
+}
