@@ -1,5 +1,5 @@
 # snake-game (
-Browser snake game made with HTML, CSS and JS. Supported on mobile devices now!
+Browser snake game made with HTML, CSS and JS. ***Supported on mobile devices now!***
 
 **Live URL:** [https://mclaramarinho.github.io/snake-game/]
 
