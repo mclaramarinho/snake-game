@@ -20,7 +20,7 @@ let gameOn;
 let appleLocation;
 let levelCount = 1;
 let resetBtn = document.getElementById("reset-btn");
-let gridUnit = 10;
+let gridUnit = 20;
 
 //EVENT LISTENERS
 
@@ -39,7 +39,8 @@ window.addEventListener('keyup', (e) => {
                         : (currentKey === 'ArrowDown' || currentKey === 'S' || currentKey === 's') ? gridUnit
                         : (currentKey === 'ArrowRight' || currentKey === 'D' || currentKey === 'd') ? 1
                         : (currentKey === 'ArrowLeft' || currentKey === 'A' || currentKey === 'a') ? -1
-                        : 1);
+                        : 1
+                    )
     }else{
         if(!start){ //if start is false
             begin();
@@ -55,15 +56,16 @@ window.addEventListener("touchstart", e => {
 window.addEventListener("touchend", e => {
     endX = e.changedTouches[0].screenX;
 })
-function checkDirection (){
-    if(startX > endX){
-        direction=-1;
-        alert("left")
-    }else{
-        direction=1;
-        alert("right")
-    }
-}
+
+// function checkDirection (){
+//     if(startX > endX){
+//         direction=-1;
+//         alert("left")
+//     }else{
+//         direction=1;
+//         alert("right")
+//     }
+// }
 
 //Reset button
 resetBtn.addEventListener('click', () => {
