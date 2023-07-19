@@ -17,8 +17,7 @@ body{
     margin-left: -200px;
     text-align: center;
 }
-p{
-    color: white;
+#instructions{
     font-size: 1.2rem;
 }
 #level-container{
