@@ -35,7 +35,7 @@ window.addEventListener('keyup', (e) => {
     let currentKey = e.key;
     if(currentKey !== 'Enter'){
         direction = (
-                        (currentKey === 'ArrowUp' || currentKey === 'W' || currentKey === 'w') ? -gridUnit
+                        (currentKey === 'ArrowUp' || currentKey === 'W' || currentKey === 'w') ? (gridUnit*-1)
                         : (currentKey === 'ArrowDown' || currentKey === 'S' || currentKey === 's') ? gridUnit
                         : (currentKey === 'ArrowRight' || currentKey === 'D' || currentKey === 'd') ? 1
                         : (currentKey === 'ArrowLeft' || currentKey === 'A' || currentKey === 'a') ? -1
@@ -103,7 +103,7 @@ function checkHit (currentBlock){
 
     hit = (
             (((currentSnake[0]+gridUnit >= (gridUnit*gridUnit))&&(direction === gridUnit))) ? true
-            : ((currentSnake[0]-gridUnit < 0)&&(direction === -gridUnit)) ? true
+            : ((currentSnake[0]-gridUnit < 0)&&(direction === (gridUnit*-1))) ? true
             : ((currentSnake[0] % gridUnit === 0) && (direction === -1)) ? true //ok
             : ((currentSnake[0] % gridUnit === 19) && (direction === 1)) ? true //ok
             : ((currentSnake[0] >= 0 && currentSnake[0] <= 19)) ? true
@@ -155,7 +155,7 @@ function gameOver (){
         
     }else if(currentSnake[0]-gridUnit < 0){
         setTimeout(() => {
-            if(direction===-gridUnit){
+            if(direction===(gridUnit*-1)){
                 gameOverFx();
             }
             
@@ -169,7 +169,7 @@ function gameOver (){
         }, 100);
     }else if((currentSnake[0] >= 0 && currentSnake[0] <= 19)){
         setTimeout(() => {
-            if(direction===-gridUnit){
+            if(direction===(gridUnit*-1)){
                 gameOverFx();
                 editSnake(1);
             }
@@ -217,7 +217,7 @@ function randomApple (currentSnake){
 function eatApple(currentSnake, appleLocation){
     if(currentSnake[0] === appleLocation){
         (direction === 1 || direction === gridUnit) ? currentSnake.push(currentSnake[currentSnake.length-1]-1)
-                : (direction === - 1 || direction === -gridUnit) ? currentSnake.push(currentSnake[currentSnake.length-1]+1)
+                : (direction === - 1 || direction === (gridUnit*-1)) ? currentSnake.push(currentSnake[currentSnake.length-1]+1)
                 : 1;
         currentBlock[appleLocation].classList.remove("apple");
         clearInterval(interval);
