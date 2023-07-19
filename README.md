@@ -7,7 +7,7 @@ Browser snake game made with HTML, CSS and JS. ***Supported on mobile devices no
 ## WHAT WAS EXPECTED AS A RESULT
 - The classic snake game for browsers
 - To **start** the game: **Press Enter** or **Hit the Start button**
-- To **move** the snake: keyboard inputs (arrows or WASD)
+- To **move** the snake: keyboard inputs (touch, arrows or WASD)
 - The game is **over when**:
   - The snake touches the edges
   - The snake ties itself
