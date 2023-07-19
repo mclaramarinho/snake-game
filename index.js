@@ -10,7 +10,7 @@ document.querySelectorAll("#grid div").forEach(item => {
 })
 
 let currentBlock = document.querySelectorAll(".grid-block"); //gets all the grid positions
-let direction = 1; // Left = -1 / Right = 1 / Up = -20 / Down = 20
+let direction = 1; // Left = -1 / Right = 1 / Up = -gridUnit / Down = gridUnit
 let startBtn = document.getElementById("start-btn");
 let start = false; //start-btn click-control
 let currentSnake = [2, 1, 0]; //Head = index 0 / Tail = last index
@@ -20,7 +20,7 @@ let gameOn;
 let appleLocation;
 let levelCount = 1;
 let resetBtn = document.getElementById("reset-btn");
-
+let gridUnit = 10;
 
 //EVENT LISTENERS
 
@@ -35,8 +35,8 @@ window.addEventListener('keyup', (e) => {
     let currentKey = e.key;
     if(currentKey !== 'Enter'){
         direction = (
-                        (currentKey === 'ArrowUp' || currentKey === 'W' || currentKey === 'w') ? -20
-                        : (currentKey === 'ArrowDown' || currentKey === 'S' || currentKey === 's') ? 20
+                        (currentKey === 'ArrowUp' || currentKey === 'W' || currentKey === 'w') ? -gridUnit
+                        : (currentKey === 'ArrowDown' || currentKey === 'S' || currentKey === 's') ? gridUnit
                         : (currentKey === 'ArrowRight' || currentKey === 'D' || currentKey === 'd') ? 1
                         : (currentKey === 'ArrowLeft' || currentKey === 'A' || currentKey === 'a') ? -1
                         : 1);
@@ -102,10 +102,10 @@ function checkHit (currentBlock){
     let hit = false;
 
     hit = (
-            (((currentSnake[0]+20 >= (20*20))&&(direction === 20))) ? true
-            : ((currentSnake[0]-20 < 0)&&(direction === -20)) ? true
-            : ((currentSnake[0] % 20 === 0) && (direction === -1)) ? true //ok
-            : ((currentSnake[0] % 20 === 19) && (direction === 1)) ? true //ok
+            (((currentSnake[0]+gridUnit >= (gridUnit*gridUnit))&&(direction === gridUnit))) ? true
+            : ((currentSnake[0]-gridUnit < 0)&&(direction === -gridUnit)) ? true
+            : ((currentSnake[0] % gridUnit === 0) && (direction === -1)) ? true //ok
+            : ((currentSnake[0] % gridUnit === 19) && (direction === 1)) ? true //ok
             : ((currentSnake[0] >= 0 && currentSnake[0] <= 19)) ? true
             : ((currentSnake[0] >= 380 && currentSnake[0] <= 399)) ? true
             : ((currentBlock[currentSnake[0]+direction].classList.contains("snake"))) ? true
@@ -135,7 +135,7 @@ function startSnake (){
 
 function gameOver (){
 
-    if(currentSnake[0]%20===19){
+    if(currentSnake[0]%gridUnit===19){
         setTimeout(() => {
             if(direction===1){
                 gameOverFx();
@@ -144,7 +144,7 @@ function gameOver (){
             }
         }, 100);
         
-    }else if (currentSnake[0]%20===0){
+    }else if (currentSnake[0]%gridUnit===0){
         setTimeout(() => {
             if(direction===-1){
                 gameOverFx();
@@ -153,23 +153,23 @@ function gameOver (){
             }
         }, 100);
         
-    }else if(currentSnake[0]-20 < 0){
+    }else if(currentSnake[0]-gridUnit < 0){
         setTimeout(() => {
-            if(direction===-20){
+            if(direction===-gridUnit){
                 gameOverFx();
             }
             
         }, 100);
-    }else if(currentSnake[0]+20 >= (20*20)){
+    }else if(currentSnake[0]+gridUnit >= (gridUnit*gridUnit)){
         setTimeout(() => {
-            if(direction===20){
+            if(direction===gridUnit){
                 gameOverFx();
             }
             
         }, 100);
     }else if((currentSnake[0] >= 0 && currentSnake[0] <= 19)){
         setTimeout(() => {
-            if(direction===-20){
+            if(direction===-gridUnit){
                 gameOverFx();
                 editSnake(1);
             }
@@ -177,7 +177,7 @@ function gameOver (){
         }, 100)
     }else if((currentSnake[0] >= 380 && currentSnake[0] <= 399)){
         setTimeout(() => {
-            if(direction===20){
+            if(direction===gridUnit){
                 gameOverFx();
                 editSnake(-1);
             }
@@ -216,8 +216,8 @@ function randomApple (currentSnake){
 }
 function eatApple(currentSnake, appleLocation){
     if(currentSnake[0] === appleLocation){
-        (direction === 1 || direction === 20) ? currentSnake.push(currentSnake[currentSnake.length-1]-1)
-                : (direction === - 1 || direction === -20) ? currentSnake.push(currentSnake[currentSnake.length-1]+1)
+        (direction === 1 || direction === gridUnit) ? currentSnake.push(currentSnake[currentSnake.length-1]-1)
+                : (direction === - 1 || direction === -gridUnit) ? currentSnake.push(currentSnake[currentSnake.length-1]+1)
                 : 1;
         currentBlock[appleLocation].classList.remove("apple");
         clearInterval(interval);
