@@ -52,8 +52,8 @@ body{
 }
 
 .grid-block{
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     border: 1px solid rgba(255, 255, 255, 0.082);
     box-sizing: border-box;
 }

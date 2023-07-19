@@ -1,5 +1,5 @@
 //CREATES GRID
-for(let i = 0; i < 400; i++){
+for(let i = 0; i < 200; i++){
     let grid = document.getElementById("grid");
     let gridBlock = document.createElement("div");
     grid.append(gridBlock);
