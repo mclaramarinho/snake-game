@@ -49,30 +49,30 @@ window.addEventListener('keyup', (e) => {
 })
 
 let startX = 0, startY = 0, endY = 0, endX = 0, diffY = 0, diffX = 0;
-
+let threshold = 100;
 window.addEventListener("touchstart", e => {
-    startX = e.changedTouches[0].screenX;
-    startY = e.changedTouches[0].screenY;
+    if(start){
+        startX = e.changedTouches[0].screenX;
+        startY = e.changedTouches[0].screenY;
+    }
 })
 window.addEventListener("touchend", e => {
-    endX = e.changedTouches[0].screenX;
-    endY = e.changedTouches[0].screenY;
-    checkDirection();
+    if(start){
+        endX = e.changedTouches[0].screenX;
+        endY = e.changedTouches[0].screenY;
+        checkDirection();
+    }
 })
-
 function checkDirection (){
-    diffX = (startX - endX)*-1;
-    diffY = (startY - endY)*-1
+    diffX = ((startX - endX) < 0) ? ((startX - endX)*-1) : (startX - endX);
+    diffY = ((startY - endY) < 0) ? ((startY - endY)*-1) : (startY - endY);
+    
     direction = (
-        (startX > endX && diffX >= diffY) ? -1
-        : (startX < endX && diffX >= diffY) ? 1
-        : (startY > endY && diffX < diffY) ? gridUnit
-        : (startY < endY && diffX < diffY) ? (gridUnit*-1) : null
+        (startX > endX && diffX >= threshold && diffX > diffY) ? -1
+        : (startX < endX && diffX >= (threshold*-1) && diffX > diffY) ? 1
+        : (startY < endY && diffY >= threshold && diffY > diffX) ? gridUnit
+        : (startY > endY && diffY >= (threshold*-1) && diffY > diffX) ? (gridUnit*-1) : direction
     )
-    direction===-1 && alert("left")
-    direction===1 && alert("right")
-    direction===gridUnit && alert("up")
-    direction===(gridUnit*-1) && alert("down")
 }
 
 //Reset button
