@@ -19,6 +19,8 @@ Browser snake game made with HTML, CSS and JS. ***Supported on mobile devices no
 ## SCREENSHOTS
 1. ![image](https://github.com/mclaramarinho/snake-game/assets/119897667/0c2c082f-21b7-4ef9-aa21-fde49e3ca25b)
 2. ![image](https://github.com/mclaramarinho/snake-game/assets/119897667/961f0744-aa73-4465-9c61-f62820eecf16)
+3. ![image](https://github.com/mclaramarinho/snake-game/assets/119897667/de915b8e-be27-44bf-948d-e8209fab318b)
+
 
 ## BUILT WITH
  - HTML
