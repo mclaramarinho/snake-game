@@ -1,5 +1,5 @@
 # snake-game
-Browser nake game made with HTML, CSS and JS
+Web browser snake game made with HTML, CSS and JS
 <br>
 **Live URL:** [https://mclaramarinho.github.io/snake-game/]
 
