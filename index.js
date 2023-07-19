@@ -63,13 +63,16 @@ window.addEventListener("touchend", e => {
 function checkDirection (){
     // diffX = start - endX;
     // diff
-    if(startX > endX){
-        direction=-1;
-        alert("left")
-    }else{
-        direction=1;
-        alert("right")
-    }
+    direction = (
+        (startX > endX) ? -1
+        : (startX < endX) ? 1
+        : (startY > endY) ? gridUnit
+        : (gridUnit*-1)
+    )
+    direction===-1 && alert("left")
+    direction===1 && alert("right")
+    direction===gridUnit && alert("up")
+    direction===(gridUnit*-1) && alert("down")
 }
 
 //Reset button
