@@ -61,13 +61,13 @@ window.addEventListener("touchend", e => {
 })
 
 function checkDirection (){
-    // diffX = start - endX;
-    // diff
+    diffX = (startX - endX)*-1;
+    diffY = (startY - endY)*-1
     direction = (
-        (startX > endX) ? -1
-        : (startX < endX) ? 1
-        : (startY > endY) ? gridUnit
-        : (gridUnit*-1)
+        (startX > endX && diffX >= diffY) ? -1
+        : (startX < endX && diffX >= diffY) ? 1
+        : (startY > endY && diffX < diffY) ? gridUnit
+        : (startY < endY && diffX < diffY) ? (gridUnit*-1) : null
     )
     direction===-1 && alert("left")
     direction===1 && alert("right")
