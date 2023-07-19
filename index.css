@@ -15,16 +15,19 @@ body{
     width: 400px;
     margin-left: -200px;
     text-align: center;
-    font-family: 'Montserrat';
-    color: white;
+    
 }
 #instructions{
     font-size: 1.2rem;
+    font-family: 'Montserrat';
+    color: white;
 }
 #level-container{
     margin-bottom: 10%;
     font-size: 1.5em;
     font-weight: 500;
+    font-family: 'Montserrat';
+    color: white;
 }
 
 #level{
