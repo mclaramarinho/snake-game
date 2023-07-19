@@ -4,8 +4,7 @@ html{
 }
 body{
     background-color: rgb(12, 4, 4);
-    font-family: 'Montserrat';
-    color: white;
+    
 }
 #container{
     position: absolute;
@@ -16,6 +15,8 @@ body{
     width: 400px;
     margin-left: -200px;
     text-align: center;
+    font-family: 'Montserrat';
+    color: white;
 }
 #instructions{
     font-size: 1.2rem;
