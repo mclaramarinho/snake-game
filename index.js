@@ -48,24 +48,29 @@ window.addEventListener('keyup', (e) => {
     }   
 })
 
-let startX = 0;
-let endX = 0;
+let startX = 0, startY = 0, endY = 0, endX = 0, diffY = 0, diffX = 0;
+
 window.addEventListener("touchstart", e => {
     startX = e.changedTouches[0].screenX;
+    startY = e.changedTouches[0].screenY;
 })
 window.addEventListener("touchend", e => {
     endX = e.changedTouches[0].screenX;
+    endY = e.changedTouches[0].screenY;
+    checkDirection();
 })
 
-// function checkDirection (){
-//     if(startX > endX){
-//         direction=-1;
-//         alert("left")
-//     }else{
-//         direction=1;
-//         alert("right")
-//     }
-// }
+function checkDirection (){
+    // diffX = start - endX;
+    // diff
+    if(startX > endX){
+        direction=-1;
+        alert("left")
+    }else{
+        direction=1;
+        alert("right")
+    }
+}
 
 //Reset button
 resetBtn.addEventListener('click', () => {
