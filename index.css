@@ -17,17 +17,17 @@ body{
     text-align: center;
     
 }
-#instructions{
-    font-size: 1.2rem;
+#instructions, #level-container{
     font-family: 'Montserrat';
     color: white;
+}
+#instructions{
+    font-size: 1.2rem;
 }
 #level-container{
     margin-bottom: 10%;
     font-size: 1.5em;
     font-weight: 500;
-    font-family: 'Montserrat';
-    color: white;
 }
 
 #level{
