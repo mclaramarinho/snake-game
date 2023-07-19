@@ -44,14 +44,33 @@ window.addEventListener('keyup', (e) => {
         if(!start){ //if start is false
             begin();
         }
-    }
+    }   
 })
+
+let startX = 0;
+let endX = 0;
+window.addEventListener("touchstart", e => {
+    startX = e.changedTouches[0].screenX;
+})
+window.addEventListener("touchend", e => {
+    endX = e.changedTouches[0].screenX;
+})
+function checkDirection (){
+    if(startX > endX){
+        direction=-1;
+    }else{
+        direction=1;
+    }
+}
+
+//Reset button
 resetBtn.addEventListener('click', () => {
     location.reload();
 })
 
 
 function begin (){
+    document.getElementById("instructions").innerText="Use WASD or Arrows to move"
     start=true; //set start to true
     startGame (); //and start game
     playSound('startGame', 0.3);
