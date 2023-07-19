@@ -58,8 +58,10 @@ window.addEventListener("touchend", e => {
 function checkDirection (){
     if(startX > endX){
         direction=-1;
+        alert("left")
     }else{
         direction=1;
+        alert("right")
     }
 }
 
